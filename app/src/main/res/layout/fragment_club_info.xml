@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:animateLayoutChanges="true"
+    tools:context=".club.info.ClubInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/lay_club_info_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flexWrap="wrap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_club_info_introduce"
+            style="@style/text_club_title"
+            android:text="@string/club_introduce"/>
+        <TextView
+            android:id="@+id/text_club_info_introduce_content"
+            style="@style/text_club_content"/>
+
+        <TextView
+            style="@style/text_club_title"
+            android:text="@string/club_member"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_club_info_second"
+            style="@style/card_club_toggle">
+            <ImageView
+                android:id="@+id/img_club_info_dropdown_second"
+                style="@style/img_club_toggle"/>
+            <TextView
+                android:id="@+id/text_club_info_second"
+                style="@style/text_club_toggle_grade"
+                android:text="@string/member_second"/>
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/text_club_info_second_member"
+            style="@style/text_club_toggle_member"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_club_info_third"
+            style="@style/card_club_toggle">
+            <ImageView
+                android:id="@+id/img_club_info_dropdown_third"
+                style="@style/img_club_toggle"/>
+            <TextView
+                android:id="@+id/text_club_info_third"
+                style="@style/text_club_toggle_grade"
+                android:text="@string/member_third"/>
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/text_club_info_third_member"
+            style="@style/text_club_toggle_member"/>
+
+        <TextView
+            android:id="@+id/text_club_info_project"
+            style="@style/text_club_title"
+            android:text="@string/club_project"/>
+        <TextView
+            android:id="@+id/text_club_info_project_content"
+            style="@style/text_club_content"/>
+
+        <TextView
+            android:id="@+id/text_club_info_want"
+            style="@style/text_club_title"
+            android:text="@string/club_want"/>
+        <TextView
+            android:id="@+id/text_club_info_want_content"
+            style="@style/text_club_content"/>
+    </LinearLayout>
+
+</ScrollView>
