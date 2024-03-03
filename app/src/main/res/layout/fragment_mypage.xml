@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".user.MypageFragment">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_my_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.94"
+        android:padding="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_button_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_my_profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_my_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/himchan_medium"
+            android:text="이름"
+            android:textSize="28sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/img_my_profile"
+            app:layout_constraintTop_toTopOf="@id/img_my_profile"/>
+
+        <TextView
+            android:id="@+id/text_my_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/himchan_light"
+            android:text="학번"
+            android:textSize="23sp"
+            android:textColor="#6E6E87"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/text_my_name"
+            app:layout_constraintBottom_toBottomOf="@id/text_my_name"/>
+
+        <TextView
+            android:id="@+id/text_my_club"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/himchan_medium"
+            android:text="동아리 이름"
+            android:textSize="25sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@id/text_my_name"
+            app:layout_constraintTop_toBottomOf="@id/text_my_name"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_my_apply"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.94"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/border_button_gray"
+        app:layout_constraintStart_toStartOf="@id/lay_my_profile"
+        app:layout_constraintEnd_toEndOf="@id/lay_my_profile"
+        app:layout_constraintTop_toBottomOf="@id/lay_my_profile">
+        
+        <TextView
+            android:id="@+id/text_my_apply_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름님의 동아리 지원 내역"
+            android:fontFamily="@font/himchan_medium"
+            android:textSize="23sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_my"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
