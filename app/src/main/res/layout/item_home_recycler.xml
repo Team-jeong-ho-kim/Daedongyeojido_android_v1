@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/border_button_gray"
+    android:layout_marginTop="8dp"
+    android:padding="20dp">
+    
+    <ImageView
+        android:id="@+id/img_home_item_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    
+    <TextView
+        android:id="@+id/text_home_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/himchan_medium"
+        android:textSize="26sp"
+        android:text="동아리 이름"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@id/img_home_item_logo"
+        app:layout_constraintTop_toTopOf="@id/img_home_item_logo"/>
+    
+    <TextView
+        android:id="@+id/text_home_item_explain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.7"
+        android:textSize="18sp"
+        android:text="동아리 한 줄 설명"
+        android:fontFamily="@font/himchan_light"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/text_home_item_name"
+        app:layout_constraintTop_toBottomOf="@id/text_home_item_name"/>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/lay_home_item_tag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.7"
+        app:flexWrap="wrap"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/text_home_item_explain"
+        app:layout_constraintTop_toBottomOf="@id/text_home_item_explain"/>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
