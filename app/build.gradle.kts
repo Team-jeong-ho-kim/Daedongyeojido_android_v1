@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.daedongyeojido_v1"
+    namespace = "com.daedongyeojido.daedongyeojido_v1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.daedongyeojido_v1"
+        applicationId = "com.daedongyeojido.daedongyeojido_v1"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -33,10 +33,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
-
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
