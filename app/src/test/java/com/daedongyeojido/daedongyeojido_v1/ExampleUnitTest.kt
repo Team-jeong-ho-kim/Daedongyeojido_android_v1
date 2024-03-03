@@ -1,4 +1,4 @@
-package com.example.daedongyeojido_v1
+package com.daedongyeojido.daedongyeojido_v1
 
 import org.junit.Test
 
