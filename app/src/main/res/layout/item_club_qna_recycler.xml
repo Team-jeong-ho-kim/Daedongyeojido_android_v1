@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_light"
         android:text="질문에 대한 답변"
-        android:textSize="21sp"
+        android:textSize="20sp"
         android:visibility="gone"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp" />

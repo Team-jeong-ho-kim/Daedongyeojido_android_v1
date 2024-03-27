@@ -12,6 +12,7 @@ import com.daedongyeojido.daedongyeojido_v1.club.qna.ClubQnaFragment
 import com.daedongyeojido.daedongyeojido_v1.club.QnAData
 import com.daedongyeojido.daedongyeojido_v1.databinding.ActivityMainBinding
 import com.daedongyeojido.daedongyeojido_v1.home.HomeFragment
+import com.daedongyeojido.daedongyeojido_v1.report.ClubSupportFragment
 import com.daedongyeojido.daedongyeojido_v1.user.MypageFragment
 import com.google.android.material.navigation.NavigationView
 
@@ -60,7 +61,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setDrawerMenu() {
+        val sidebar = binding.navigationMain
         when(Token().getPart()) {
+           // "INDEPENDENT" ->
         }
     }
     private fun setAppBar() {
@@ -71,15 +74,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setDisplayShowHomeEnabled(false)
     }
 
-    fun changeFragment(index: Int) {
-        val fragmentManager = supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
-        when(index) {
-            0 -> transaction.replace(R.id.lay_main_frame, MypageFragment())
-        }
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
+//    fun changeFragment(index: Int) {
+//        val fragmentManager = supportFragmentManager
+//        val transaction = fragmentManager.beginTransaction()
+//        when(index) {
+//            0 -> transaction.replace(R.id.lay_main_frame, ClubSupportFragment())
+//        }
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+//    }
 
     fun clubDetail(name: String) {
         val transaction = supportFragmentManager.beginTransaction()
@@ -87,13 +90,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transaction.addToBackStack(null)
         transaction.commit()
     }
-    fun clubDetailTab(index: Int, qna: QnAData, clubInfo: ClubInfo, clubName: String) {
+    fun clubDetailTab(index: Int, qna: List<QnAData>, clubInfo: ClubInfo, clubName: String) {
         val transaction = supportFragmentManager.beginTransaction()
         when(index) {
             0 -> transaction.replace(R.id.lay_detail_frame, ClubInfoFragment(clubInfo))
             1 -> transaction.replace(R.id.lay_detail_frame, ClubNoticeFragment(clubName))
             2 -> transaction.replace(R.id.lay_detail_frame, ClubQnaFragment(qna))
         }
+        transaction.commit()
+    }
+
+    fun clubSupportChange(clubName: String, major: String) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.lay_main_frame, ClubSupportFragment(clubName, major))
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 

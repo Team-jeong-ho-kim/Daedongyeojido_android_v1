@@ -23,7 +23,7 @@ import retrofit2.Response
 class ClubDetailFragment(private val clubName: String) : Fragment() {
     private lateinit var binding: FragmentClubDetailBinding
     private lateinit var clubInfo: ClubInfo
-    private lateinit var qna: QnAData
+    private lateinit var qnaResponse: List<QnAData>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,9 +39,9 @@ class ClubDetailFragment(private val clubName: String) : Fragment() {
         binding.layDetailTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when(tab.position) {
-                    0 -> mainActivity.clubDetailTab(0, qna, clubInfo, clubName)
-                    1 -> mainActivity.clubDetailTab(1, qna, clubInfo, clubName)
-                    2 -> mainActivity.clubDetailTab(2, qna, clubInfo, clubName)
+                    0 -> mainActivity.clubDetailTab(0, qnaResponse, clubInfo, clubName)
+                    1 -> mainActivity.clubDetailTab(1, qnaResponse, clubInfo, clubName)
+                    2 -> mainActivity.clubDetailTab(2, qnaResponse, clubInfo, clubName)
                 }
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -77,6 +77,6 @@ class ClubDetailFragment(private val clubName: String) : Fragment() {
             .apply(RequestOptions.bitmapTransform(RoundedCorners(20))).into(binding.imgDetailLogo)
 
         clubInfo = ClubInfo(response.introduction, response.project, response.weWant, response.tags, response.clubMembers)
-        qna = QnAData(response.qandA)
+        qnaResponse = response.questResponses
     }
 }

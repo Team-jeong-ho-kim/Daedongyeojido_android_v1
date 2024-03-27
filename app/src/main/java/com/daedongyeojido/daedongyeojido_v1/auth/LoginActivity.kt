@@ -1,6 +1,7 @@
 package com.daedongyeojido.daedongyeojido_v1.auth
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -31,11 +32,7 @@ class LoginActivity : AppCompatActivity() {
         binding.editLoginPw.addTextChangedListener(textWatcher)
 
         binding.btnLogin.setOnClickListener {
-//            if (binding.btnLogin.isEnabled)
-//                login()
-            if (editCheck) {
-                login()
-            }
+            login()
         }
         updateButtonState()
     }
@@ -61,9 +58,11 @@ class LoginActivity : AppCompatActivity() {
 //        Log.d("button", "backgroundResource : $backgroundResource")
         if (id.isNotEmpty() && pw.isNotEmpty()) {
             binding.btnLogin.setBackgroundResource(R.drawable.btn_after)
+            binding.btnLogin.isEnabled = true
             editCheck = true
         } else {
             binding.btnLogin.setBackgroundResource(R.drawable.btn_before)
+            binding.btnLogin.isEnabled = false
             editCheck = false
         }
         Log.d("button", editCheck.toString())
@@ -85,9 +84,11 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     Log.d("server", response.code().toString())
-                    Toast.makeText(this@LoginActivity, "아이디나 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "아이디나 비밀번호를 확인해주세요", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
+
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("server", t.message.toString())
                 Toast.makeText(this@LoginActivity, "서버 연동 실패", Toast.LENGTH_SHORT).show()

@@ -8,6 +8,7 @@ import com.daedongyeojido.daedongyeojido_v1.home.HomeClubResponse
 import com.daedongyeojido.daedongyeojido_v1.user.MypageResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -30,4 +31,16 @@ interface ServerApi {
         @Path("clubName") clubName: String,
         @Header("Authorization") token: String
     ): Call<List<NoticeData>>
+
+    @DELETE("report/cancel/{reportId}")
+    fun deleteApply(
+        @Path("reportId") reportId: Long,
+        @Header("Authorization") token: String
+    ): Call<Void>
+
+    @DELETE("mess/delete/{messId}")
+    fun deleteMess(
+        @Path("messId") messId: Long,
+        @Header("Authorization") token: String
+    )
 }

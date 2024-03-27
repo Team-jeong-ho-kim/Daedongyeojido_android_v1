@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daedongyeojido.daedongyeojido_v1.ApiProvider
+import com.daedongyeojido.daedongyeojido_v1.CustomDialog
+import com.daedongyeojido.daedongyeojido_v1.MainActivity
 import com.daedongyeojido.daedongyeojido_v1.ServerApi
 import com.daedongyeojido.daedongyeojido_v1.Token
 import com.daedongyeojido.daedongyeojido_v1.club.NoticeData
@@ -17,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ClubNoticeFragment(private val clubName: String) : Fragment() {
+class ClubNoticeFragment(private val clubName: String) : Fragment(), ClubNoticeAdapter.ClubNoticeClickListener {
     private lateinit var binding: FragmentClubNoticeBinding
     private val noticeList = mutableListOf<NoticeData>()
     override fun onCreateView(
@@ -31,7 +33,7 @@ class ClubNoticeFragment(private val clubName: String) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val noticeAdapter = ClubNoticeAdapter(noticeList)
+        val noticeAdapter = ClubNoticeAdapter(noticeList, this)
         binding.recyclerClubNotice.adapter = noticeAdapter
         binding.recyclerClubNotice.layoutManager = LinearLayoutManager(activity)
     }
@@ -58,5 +60,13 @@ class ClubNoticeFragment(private val clubName: String) : Fragment() {
         for (notice in response) {
             noticeList.add(NoticeData(notice.id, notice.major, notice.clubName, notice.deadline, notice.applyOrNot))
         }
+    }
+
+    override fun onClubNoticeClicked(clubName: String, major: String) {
+        (activity as MainActivity).clubSupportChange(clubName, major)
+    }
+
+    override fun onNoticeCancelClicked(type: String, id: Long, title: String, content: String, accept: String, cancel: String) {
+        CustomDialog(type, id, title, content, accept, cancel)
     }
 }

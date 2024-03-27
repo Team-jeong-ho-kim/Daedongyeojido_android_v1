@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/menu_mypage"
         android:title="@string/navigation_mypage"
@@ -16,21 +17,6 @@
         android:icon="@drawable/icon_application"/>
 
     <item
-        android:id="@+id/menu_management"
-        android:title="@string/navigation_management"
-        android:icon="@drawable/icon_management"/>
-
-    <item
-        android:id="@+id/menu_request"
-        android:title="@string/navigation_request"
-        android:icon="@drawable/icon_request"/>
-
-    <item
-        android:id="@+id/menu_accept"
-        android:title="@string/navigation_accept"
-        android:icon="@drawable/icon_accept"/>
-
-    <item
         android:id="@+id/menu_bug"
         android:title="@string/navigation_bug"
         android:icon="@drawable/icon_bug"/>
@@ -39,4 +25,5 @@
         android:id="@+id/menu_logout"
         android:title="@string/navigation_logout"
         android:icon="@drawable/icon_logout"/>
+
 </menu>

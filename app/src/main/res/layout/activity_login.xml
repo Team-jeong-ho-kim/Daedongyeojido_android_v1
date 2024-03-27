@@ -47,7 +47,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
         style="@style/btn_next"
-        android:backgroundTint="@color/button_gray"
+        android:enabled="false"
         android:text="@string/login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -9,6 +9,7 @@ data class ClubDetailResponse(
     val clubImageUrl: String,
     val tags: List<String>,
     val clubMembers: List<ClubMember>,
+    val questResponses: List<QnAData>,
     val qandA: String
 )
 
@@ -23,7 +24,9 @@ data class ClubInfo(
     val clubMembers: List<ClubMember>
 )
 data class QnAData(
-    val qnA: String
+    val questionId: Int,
+    val question: String,
+    val answer: String
 )
 
 data class NoticeData(
